@@ -12,6 +12,8 @@ import os
 dirty = False
 loopDelay = 1/50
 writeDelay = 50
+invertX = True
+invertY = True
 potentiometerX = analogio.AnalogIn(board.GP26)
 potentiometerY = analogio.AnalogIn(board.GP27)
 led = digitalio.DigitalInOut(board.LED)
@@ -19,6 +21,9 @@ led = digitalio.DigitalInOut(board.LED)
 # ======== main program ========
 print('Exec main')
 print(os.listdir())
+
+xc = 0
+yc = 0
 
 # read config
 data = { 'border': 500, 'x': {'min': 65536,'center':0,'max':-65536}, 'y': {'min': 65536,'center':0,'max':-65536}}
@@ -94,6 +99,12 @@ while True:
         gpY = range_map(valueY, yc, y2, 0, 127)
         isMoving = True
 
+# Invert axis
+    if invertX :
+        gpX = -gpX
+    if invertY :
+        gpY = -gpY
+        
     gp.move_joysticks(y=gpX, x=gpY, z=0)
     led.value = isMoving
     #gp.move_joysticks(x=gpX, y=gpY, z=0)
