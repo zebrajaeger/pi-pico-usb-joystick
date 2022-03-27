@@ -28,4 +28,6 @@ You can remove the file with Thonny.
 - Delete the fslock file.
 - Reboot the PP (power cycle).
 
+## Run with Ubuntu
 
+- https://wiki.ubuntuusers.de/joystick/
