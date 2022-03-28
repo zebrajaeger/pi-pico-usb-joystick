@@ -2,9 +2,9 @@
 
 // TODO
 
-## Install MicroPython on Pi Pico
+## Install CircuitPython on Pi Pico
 
-- Download MicroPython for Pi Pico (https://micropython.org/download/rp2-pico/).
+- Download CircuitPython for Pi Pico (https://circuitpython.org/board/raspberry_pi_pico/).
 - Choose Firmware / Releases / Latest.
 - Follow the installation instructions at the page.
 
