@@ -2,6 +2,14 @@
 
 ![](./doc/IMG_20230426_105732.jpg)
 
+## Hardware
+
+- Raspberry Pi Pico
+- FrSky Gimbal M9 Hall Sensor for Taranis X9D Plus
+- Switch (to enable mass storage device again. For updates etc.)
+- 4-pin plug for PCB and gimbal
+- Case
+
 ## Install CircuitPython on Pi Pico
 
 - Download CircuitPython for Pi Pico (https://circuitpython.org/board/raspberry_pi_pico/).
