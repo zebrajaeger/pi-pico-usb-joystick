@@ -1,6 +1,7 @@
 #boot.py
 import usb_hid
 import storage
+import board, digitalio
 
 GAMEPAD_REPORT_DESCRIPTOR = bytes((
     0x05, 0x01,  # Usage Page (Generic Desktop Ctrls)
@@ -43,9 +44,18 @@ usb_hid.enable(
      gamepad)
 )
 
-try:
-    with open('fslock', 'r') as checkFile:        
-        storage.remount("/", readonly=False)
-except OSError:
-    print('FS stays readonly for this application. Write the config will fail.')
+button = digitalio.DigitalInOut(board.GP16)
+button.direction = digitalio.Direction.INPUT
+button.pull = digitalio.Pull.UP
+if button.value:
+    print(f"boot: button not pressed, disabling drive")
+    storage.disable_usb_drive()
+    # Remount as writable
+    try:
+        with open('fslock', 'r') as checkFile:
+            storage.remount("/", readonly=False)
+    except OSError:
+        print(f'Could not remount as redonly')
 
+else:
+    print(f"boot: button pressed, drive is enabled and writable")
