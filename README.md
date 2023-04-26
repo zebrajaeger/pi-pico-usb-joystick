@@ -1,6 +1,6 @@
 # pi-pico-usb-joystick
 
-// TODO
+![](./doc/IMG_20230426_105732.jpg)
 
 ## Install CircuitPython on Pi Pico
 
